@@ -176,6 +176,9 @@ export default {
             invoiceTotal: 0,
         }
     },
+    created() {
+        
+    },
     methods: {
         ...mapMutations(["TOGGLE_INVOICE"]),
         closeInvoice() {
@@ -193,6 +196,9 @@ export default {
     width: 100%;
     height: 100%;
     overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     @media (min-width: 900px) {
         left: 90px;
     }

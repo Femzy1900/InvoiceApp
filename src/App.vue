@@ -3,7 +3,9 @@
     <div v-if="!mobile" class="app flex">
       <Navigation />
       <div class="app-content flex flex-column">
-        <InvoiceModal v-if="invoiceModal"/>
+        <transition name="invoice">
+          <InvoiceModal v-if="invoiceModal"/>
+        </transition>
         <router-view />
       </div>
     </div>
@@ -85,7 +87,7 @@ import { mapState } from 'vuex';
     margin-top: 16px;
   }
 }
-  
+    
 
 // animated invoice
 

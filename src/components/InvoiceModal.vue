@@ -153,7 +153,7 @@ export default {
     name: "InvoiceModal",
     data() {
         return {
-      
+            dataOptions: {year: "numeric", month: "short", day: "numeric"},
             billerStreetAddress: null,
             billerCity: null,
             billerZipCode: null,
@@ -177,7 +177,8 @@ export default {
         }
     },
     created() {
-        
+        this.invoiceDateUnix = Date.now()
+        this.invoiceDate = new Date(this.invoiceDateUnix).toLocaleDateString('en-us', this.dateOptions)
     },
     methods: {
         ...mapMutations(["TOGGLE_INVOICE"]),

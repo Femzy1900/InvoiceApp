@@ -44,6 +44,10 @@ export default {
 
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu
+    },
+    ...mapMutations(["TOGGLE_INVOICE"]),
+    newInvoice() {
+      this.TOGGLE_INVOICE();
     }
   },
 

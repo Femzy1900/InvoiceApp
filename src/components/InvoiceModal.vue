@@ -111,7 +111,7 @@
                             </th>
                         </tr>
                         <tr class="table-items flex" v-for="(item, index) in invoiceItemList" :key="index">
-                            <td class="ite-name">
+                            <td class="item-name">
                                 <input type="text" v-model="item.itemName">
                             </td>
                             <td class="qty">
@@ -149,6 +149,7 @@
 </template>
 <script>
 import {mapMutations} from "vuex"
+import { uid } from "uid"
 export default {
     name: "InvoiceModal",
     data() {
@@ -184,6 +185,24 @@ export default {
         ...mapMutations(["TOGGLE_INVOICE"]),
         closeInvoice() {
             this.TOGGLE_INVOICE();
+        },
+
+        addNewInvoiceItem() {
+            this.invoiceItemList.push({
+                id: uid(),
+                itemName: "",
+                qty: "",
+                price: 0,
+                total: 0,
+
+            })
+        }
+    }, 
+    watch: {
+        paymentTerms() {
+            const futureDate = new Date();
+            this.paymentDueDateUnix = futureDate.setDate(futureDate.getDate() + parseInt(this.paymentTerms))
+            this.paymentDueDate = new Date(this.paymentDueDateUnix).toLocaleDateString("en-us", this.dateOptions)
         }
     }
 }

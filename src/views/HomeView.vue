@@ -24,11 +24,17 @@
         </div>
       </div>
     </div>
+    
+    <!-- Invoices -->
+    <div class="">
+      <Invoice v-for="(invoice, index) in invoiceData" :invoice="invoice" :key="index"/>
+    </div>
   </div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import Invoice from '@/components/Invoice.vue'
+import {mapMutations, mapState} from 'vuex'
 export default {
   name: 'HomeView',
   data() {
@@ -37,6 +43,7 @@ export default {
     }
   },
   components: {
+    Invoice,
 
   },
   methods: {
@@ -48,6 +55,9 @@ export default {
     ...mapMutations(["TOGGLE_INVOICE"]),
     newInvoice() {
       this.TOGGLE_INVOICE();
+    },
+    computed: {
+      ...mapState(["invoiceData"])
     }
   },
 

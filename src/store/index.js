@@ -20,7 +20,7 @@ export default createStore({
             console.log(state.invoiceData);
         },
         INVOICES_LOADED(state) {
-            state.invoicesLoaded = true
+            state.invoicesLoaded = true;
         }
     },
     actions: {

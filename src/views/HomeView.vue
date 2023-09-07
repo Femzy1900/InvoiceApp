@@ -56,10 +56,10 @@ export default {
     newInvoice() {
       this.TOGGLE_INVOICE();
     },
-    computed: {
-      ...mapState(["invoiceData"])
-    }
   },
+  computed: {
+    ...mapState(["invoiceData"])
+  }
 
 }
 </script>

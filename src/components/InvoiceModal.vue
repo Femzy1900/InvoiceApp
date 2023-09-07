@@ -158,7 +158,7 @@ export default {
     data() {
         return {
             dataOptions: {year: "numeric", month: "short", day: "numeric"},
-            loading: null,
+            Loading: null,
             billerStreetAddress: null,
             billerCity: null,
             billerZipCode: null,
@@ -232,11 +232,11 @@ export default {
                 return;
             }
 
-            this.loading = true;
+            this.Loading = true;
 
             this.calInvoiceTotal
 
-            const dataBase = db.collection('invoice').doc()
+            const dataBase = db.collection('invoices').doc()
 
             await dataBase.set({
                 invoiceId: uid(6),
@@ -263,7 +263,7 @@ export default {
                 invoicePaid: null,
             })
 
-            this.loading = false;
+            this.Loading = false;
 
             this.TOGGLE_INVOICE();
                      

@@ -216,7 +216,7 @@ export default {
         },
         calInvoiceTotal() {
             this.invoiceTotal = 0;
-            this.invoiceItemList.forEach((item)=> {
+            this.invoiceItemList.forEach((item) => {
                 this.invoiceTotal += item.total;
             })
         },
@@ -234,7 +234,7 @@ export default {
 
             this.Loading = true;
 
-            this.calInvoiceTotal
+            this.calInvoiceTotal();
 
             const dataBase = db.collection('invoices').doc()
 

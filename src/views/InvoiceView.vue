@@ -254,7 +254,7 @@ export default {
                     .billing-items {
                         padding: 32px;
                         border-radius: 20px 20px 0 0;
-                        background-color: #251945;
+                        background-color: #252945;
 
                         .headings {
                             color: #dfe3fa;
@@ -289,6 +289,23 @@ export default {
                                 flex: 1;
                                 text-align: right;
                             }
+                        }
+                    }
+                    .total {
+                        color: #fff;
+                        padding: 32px;
+                        background-color: rgba(12, 14, 22, 0.7);
+                        align-items: center;
+                        border-radius: 0 0 20px 20px;
+
+                        p {
+                            flex: 1;
+                            font-size: 12px;
+                        }
+
+                        p:nth-child(2) {
+                            font-size: 28px;
+                            text-align: right;
                         }
                     }
                 }

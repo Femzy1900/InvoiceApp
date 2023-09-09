@@ -91,6 +91,10 @@
                         </p>
                     </div>
                 </div>
+                <div class="total flex">
+                    <p>Amount Due</p>
+                    <p>{{ currentInvoice.invoiceTotal }}</p>
+                </div>
             </div>
         </div>
     </div>

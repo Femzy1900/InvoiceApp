@@ -79,7 +79,16 @@
                         <p>Total</p>
                     </div>
                     <div v-for="(item, index) in currentInvoice.invoiceItemList" :key="index" class="item flex">
-                        p
+                        <p>{{ item.itemName }}</p>
+                        <p>
+                            {{ item.qty }}
+                        </p>
+                        <p>
+                            {{ item.price }}
+                        </p>
+                        <p>
+                            {{ item.total }}
+                        </p>
                     </div>
                 </div>
             </div>

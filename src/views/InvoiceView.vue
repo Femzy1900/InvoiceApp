@@ -20,6 +20,32 @@
                 <span v-if="currentInvoice.invoicePending">Pending</span>
                 </div>
             </div>
+            <div class="right flex">
+                <button @click="toggleEditInvoice(currentInvoice.docId)" class="dark-purple">Edit</button>
+                <button @click="deleteInvoice(currentInvoice.docId)" class="red">Delete</button>
+                <button v-if="currentInvoice.invoicePending" @click="updateStatusToPaid(currentInvoice.docId)" class="green">
+                    Mark as Paid
+                </button>
+                <button v-if="currentInvoice.invoiceDraft || currentInvoice.invoicePaid" @click="updateStatusToPending" class="orange">
+                    Mark as Pending
+                </button>
+            </div>
+        </div>
+
+        <div class="invoice-details flex flex-column">
+            <div class="top flex">
+                <div class="left flex">
+                    <p><span>#</span> {{ currentInvoice.invoiceId }}
+                    </p>
+                    <p>{{ currentInvoice.productDescription }}</p>
+                </div>
+                <div class="right flex flex-column">
+                    <p>{{ currentInvoice.billerStreetAddress }}</p>
+                    <p>{{ currentInvoice.billerCity }}</p>
+                    <p>{{ currentInvoice.billerZipCode }}</p>
+                    <p>{{ currentInvoice.billerCountry }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>

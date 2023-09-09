@@ -70,6 +70,19 @@
                     <p>{{ currentInvoice.clientEmail }}</p>
                 </div>
             </div>
+            <div class="bottom flex flex-column">
+                <div class="biling-items">
+                    <div class="heading flex">
+                        <p>Item Name</p>
+                        <p>QTY</p>
+                        <p>Price</p>
+                        <p>Total</p>
+                    </div>
+                    <div v-for="(item, index) in currentInvoice.invoiceItemList" :key="index" class="item flex">
+                        p
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>

@@ -142,6 +142,7 @@ export default {
         .invoice-details  {
             background-color: #1e2139;
             border-radius: 20px;
+        }
             .header {
                 align-items: center;
                 padding: 24px 32px;
@@ -293,5 +294,4 @@ export default {
                 }
             }
         }
-    }
 </style>

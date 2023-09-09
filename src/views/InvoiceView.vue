@@ -46,6 +46,26 @@
                     <p>{{ currentInvoice.billerCountry }}</p>
                 </div>
             </div>
+            <div class="middle flex">
+                <div class="payment flex flex-column">
+                    <h4>Invoice Date</h4>
+                    <p>
+                        {{ currentInvoice.invoiceData }}
+                    </p>
+                    <h4>Payment Date</h4>
+                    <p>
+                        {{ currentInvoice.paymentDueDate }}
+                    </p>
+                </div>
+                <div class="bill flex flex-column">
+                    <h4>Bill To</h4>
+                    <p>{{ currentInvoice.clientName }}</p>
+                    <p>{{ currentInvoice.clientStreetName }}</p>
+                    <p>{{ currentInvoice.clientCity }}</p>
+                    <p>{{ currentInvoice.clientZipCode }}</p>
+                    <p>{{ currentInvoice.clientCountry }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>

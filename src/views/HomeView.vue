@@ -10,10 +10,10 @@
           <span>Filter by status</span>
           <img src="../assets/icon-arrow-down.svg" alt="">
           <ul v-show="filterMenu" class="filter-menu">
-              <li>Draft</li>
-              <li>Pending</li>
-              <li>Paid</li>
-              <li>Clear Filter</li>
+              <li @click="filteredInvoices">Draft</li>
+              <li @click="filteredInvoices">Pending</li>
+              <li @click="filteredInvoices">Paid</li>
+              <li @click="filteredInvoices">Clear Filter</li>
           </ul>
         </div>
         <div @click="newInvoice" class="button flex">
@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       filterMenu: null,
+      filteredInvoices: null,
     }
   },
   components: {
@@ -61,6 +62,9 @@ export default {
     newInvoice() {
       this.TOGGLE_INVOICE();
     },
+    filteredInvoices() {
+      
+    }
   },
   computed: {
     ...mapState(["invoiceData"])

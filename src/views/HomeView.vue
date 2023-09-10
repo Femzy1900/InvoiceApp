@@ -7,7 +7,7 @@
       </div>
       <div class="right flex">
         <div @click="toggleFilterMenu" class="filter flex" >
-          <span>Filter by status</span>
+          <span>Filter by status: <span v-if="filteredInvoices">{{ filteredInvoices }}</span></span>
           <img src="../assets/icon-arrow-down.svg" alt="">
           <ul v-show="filterMenu" class="filter-menu">
               <li @click="filteredInvoices">Draft</li>
@@ -27,7 +27,7 @@
     
     <!-- Invoices sss-->
     <div v-if="invoiceData.length > 0" class="">
-      <Invoice v-for="(invoice, index) in invoiceData" :invoice="invoice" :key="index"/>
+      <Invoice v-for="(invoice, index) in filteredData" :invoice="invoice" :key="index"/>
     </div>
     <div v-else class="empty flex flex-column">
       <img src="../assets//illustration-empty.svg" alt="">
@@ -63,11 +63,30 @@ export default {
       this.TOGGLE_INVOICE();
     },
     filteredInvoices() {
-      
+      if (e.target.innerText === 'Clear Filter') {
+        this.filteredInvoices = null;
+        return;
+      }
+      this.filteredInvoices = e.target.innerText;
     }
   },
   computed: {
-    ...mapState(["invoiceData"])
+    ...mapState(["invoiceData"]),
+
+    filteredData() {
+      return this.invoiceData.filter(invoice => {
+        if (this.filteredInvoices === "Draft") {
+          return invoice.invoiceDraft === true
+        }
+        if (this.filteredInvoices === "Pending") {
+          return invoice.invoicePending === true
+;       }
+        if (this.filteredInvoices === "Paid") {
+          return invoice.invoicePaid === true
+;       }
+        return invoice;
+      })
+    }
   }
 
 }

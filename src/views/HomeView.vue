@@ -7,7 +7,7 @@
       </div>
       <div class="right flex">
         <div @click="toggleFilterMenu" class="filter flex" >
-          <span>Filter by status: <span v-if="filteredInvoices">{{ filteredInvoices }}</span></span>
+          <span>Filter by status<span v-if="filteredInvoice">: {{ filteredInvoice }}</span></span>
           <img src="../assets/icon-arrow-down.svg" alt="">
           <ul v-show="filterMenu" class="filter-menu">
               <li @click="filteredInvoices">Draft</li>
@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       filterMenu: null,
-      filteredInvoices: null,
+      filteredInvoice: null,
     }
   },
   components: {
@@ -53,7 +53,9 @@ export default {
 
   },
   methods: {
-    newInvoice() {},
+    newInvoice() {
+      this.TOGGLE_INVOICE()
+    },
 
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu
@@ -62,12 +64,12 @@ export default {
     newInvoice() {
       this.TOGGLE_INVOICE();
     },
-    filteredInvoices() {
+    filteredInvoices(e) {
       if (e.target.innerText === 'Clear Filter') {
-        this.filteredInvoices = null;
+        this.filteredInvoice = null;
         return;
       }
-      this.filteredInvoices = e.target.innerText;
+      this.filteredInvoice = e.target.innerText;
     }
   },
   computed: {
@@ -75,14 +77,14 @@ export default {
 
     filteredData() {
       return this.invoiceData.filter(invoice => {
-        if (this.filteredInvoices === "Draft") {
-          return invoice.invoiceDraft === true
+        if (this.filteredInvoice === "Draft") {
+          return invoice.invoiceDraft === true;
         }
-        if (this.filteredInvoices === "Pending") {
-          return invoice.invoicePending === true
+        if (this.filteredInvoice === "Pending") {
+          return invoice.invoicePending === true;
 ;       }
-        if (this.filteredInvoices === "Paid") {
-          return invoice.invoicePaid === true
+        if (this.filteredInvoice === "Paid") {
+          return invoice.invoicePaid === true;
 ;       }
         return invoice;
       })

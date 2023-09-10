@@ -142,7 +142,7 @@
                 <div class="right">
                     <button v-if="!editInvoice" type="submit" @click="saveDraft" class="dark-purple">Save Draft</button>
                     <button v-if="!editInvoice"  type="submit" @click="publishInvoice" class="purple">Create Invoice</button>
-                    <button v-if="editInvoice" type="submit" @click="publishInvoice" class="purple">Update Invoice </button>
+                    <button v-if="editInvoice" type="submit"  class="purple">Update Invoice </button>
                 </div>
             </div>
 
@@ -261,6 +261,7 @@ export default {
             this.invoiceDraft = true;
         },
         async uploadInvoice() {
+
             if (this.invoiceItemList.length <= 0) {
                 alert("Please ensure you filled out work items")
                 return;
@@ -339,7 +340,7 @@ export default {
 
             const data = {
                 docId: this.docId,
-                routeId: this.$route.params.docId
+                routeId: this.$route.params.invoiceId
             }
 
             this.UPDATE_INVOICE(data);

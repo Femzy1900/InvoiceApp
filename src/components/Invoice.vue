@@ -12,7 +12,7 @@
             <span class="price">
                 ${{ invoice.invoiceTotal }}
             </span>
-            <div class="status-button flex" :class="{paid : invoicePaid, draft: invoice.invoiceDraft, pending: invoice.invoicePending}">
+            <div class="status-button flex" :class="{paid : invoice.invoicePaid, draft: invoice.invoiceDraft, pending: invoice.invoicePending}">
                 <span v-if="invoice.invoicePaid">
                     Paid
                 </span>
